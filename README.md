@@ -100,18 +100,20 @@ USER IS NOT IN THE SUDOERS FILE
 
 		yum install zlib-devel
 
-	![Ссылка на проблему](https://unix.stackexchange.com/questions/291737/zipimport-zipimporterror-cant-decompress-data-zlib-not-available)
+	[Ссылка на проблему](https://unix.stackexchange.com/questions/291737/zipimport-zipimporterror-cant-decompress-data-zlib-not-available)
 
 
 * SSL module is not available
 
 	Решение:
-		
+	
 		sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel zlib* libffi-devel readline-devel tk-devel
 		переустановка python make install
 
 Zsh и Oh-my-zsh
 ---------------
+
+Установка:
 
   yum install zsh -y
   chsh -s /usr/bin/zsh
