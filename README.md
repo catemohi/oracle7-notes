@@ -108,17 +108,18 @@ USER IS NOT IN THE SUDOERS FILE
 	Решение:
 	
 		sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel zlib* libffi-devel readline-devel tk-devel
-		переустановка python make install
+		# переустановка python
+		make install
 
 Zsh и Oh-my-zsh
 ---------------
 
 Установка:
 
-  yum install zsh -y
-  chsh -s /usr/bin/zsh
-  wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-  /bin/cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-  source ~/.zshrc
+  	yum install zsh -y
+  	chsh -s /usr/bin/zsh
+  	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+  	/bin/cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  	source ~/.zshrc
 
 
