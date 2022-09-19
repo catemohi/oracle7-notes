@@ -4,6 +4,17 @@ centos7-notes
 Заметки по работе с centOS 7.
 -----------------------------
 
+Добавление юзера
+----------------
+
+Для создания нового пользователя введите команду:
+
+	sudo adduser username
+	
+Установить пароль для нового пользователя:
+
+	sudo passwd username
+
 Настройка DNS
 -------------
 
@@ -30,15 +41,21 @@ centos7-notes
 
 	sudo yum install net-tools -y
 	sudo yum install bind-utils -y
-	yum install wget git -y
+	sudo yum install wget git -y
 
 Установка библиотек для работы Python и SSL:
 
+	sudo yum -y groupinstall "Development tools"
 	sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel zlib* libffi-devel readline-devel tk-devel
+	sudo yum -y install readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 
 Устанавливаем vim:
 
 	sudo yum install vim -y
+	
+Обертки для работы с zip:
+
+	sudo yum install -y unzip zip
 
 Отключаем SElinux:
 
