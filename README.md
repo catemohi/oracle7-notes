@@ -198,7 +198,7 @@ error: gnu/stubs-32.h: No such file or directory
 Обновление OpenSSL выше 1.0.2:
 -------------------
 
-[Оригинальная статья]https://www.dmosk.ru/miniinstruktions.php?mini=openssl-update-centos])
+[Оригинальная статья](https://www.dmosk.ru/miniinstruktions.php?mini=openssl-update-centos)
 
 	wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
 	tar -xvf openssl-*.tar.gz && \rm openssl-*.tar.gz
