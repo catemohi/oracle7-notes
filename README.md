@@ -101,6 +101,8 @@ USER IS NOT IN THE SUDOERS FILE
 Запускаем конфигурационный скрипт:
 
 	./configure
+	# Для установки в папку ~/.python
+	./configure --enable-optimizations --prefix=/home/<username>/.python
 
 Компилируем с помощью make:
 
