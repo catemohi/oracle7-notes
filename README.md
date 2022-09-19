@@ -163,11 +163,11 @@ Zsh и Oh-my-zsh
 	
 Запускаем конфигурацию:
 	
-	./configure --enable-multilib 
+	./configure --enable-multilib --enable-languages=c,c++
 
 Если вылетает ошибка с zlib и GCC_NO_EXECUTABLES запустите добавив ключ:
 
-	./configure --disable-multilib  --with-system-zlib
+	./configure --disable-multilib  --with-system-zlib --enable-languages=c,c++
 	# Так же есть решение не передавать ключ --disable-multilib, но так не запустилось
 	Ошибка сборки компилятора с фатальной ошибкой: gnu/stubs-32.h: Нет такого файла или Каталог
 	
