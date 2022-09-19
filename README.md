@@ -182,4 +182,12 @@ error: gnu/stubs-32.h: No such file or directory
 
 	sudo make && make install
 
-
+GCC
+________________
+	
+	yum -y install oracle-softwarecollection-release-el7
+	sudo yum install scl-utils -y
+	sudo yum install devtoolset-8
+	sudo scl enable devtoolset-8 -- gcc --version
+	
+	
