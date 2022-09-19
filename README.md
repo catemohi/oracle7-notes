@@ -138,5 +138,11 @@ Zsh и Oh-my-zsh
   	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
   	/bin/cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
   	source ~/.zshrc
+	
+При ошибки изменения можно попробовать:
+	
+	usermod -s /bin/zsh 
+	# вместо
+	chsh -s /usr/bin/zsh
 
 
