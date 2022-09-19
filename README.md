@@ -272,3 +272,11 @@ error: gnu/stubs-32.h: No such file or directory
 	# Проверяем с помощью тестового контейнера
 	docker run hello-world
 
+Установка docker-compose:
+-------------------------
+
+	sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	docker-compose --version
+	
+	
