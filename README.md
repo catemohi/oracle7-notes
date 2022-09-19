@@ -146,3 +146,40 @@ Zsh и Oh-my-zsh
 	chsh -s /usr/bin/zsh
 
 
+Обновление GCC:
+---------------
+
+Скачиваем исходник:
+
+	wget https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz
+	
+Разархивируем:
+
+	tar -xJf gcc-8.2.0.tar.xz
+	
+Проваливаемся в папку и скачиваем зависимости:
+
+	./contrib/download_prerequisites
+	
+Запускаем конфигурацию:
+	
+	./configure --enable-multilib 
+
+Если вылетает ошибка с zlib и GCC_NO_EXECUTABLES запустите добавив ключ:
+
+	./configure --disable-multilib  --with-system-zlib
+	# Так же есть решение не передавать ключ --disable-multilib, но так не запустилось
+	Ошибка сборки компилятора с фатальной ошибкой: gnu/stubs-32.h: Нет такого файла или Каталог
+	
+error: gnu/stubs-32.h: No such file or directory
+
+	Это сообщение об ошибке появляется в 64-битных системах, где GCC/UPC функция multilib включена, и это указывает на то, что 32-битная версия libc не установлен. 	Есть два способа исправить эту проблему:
+
+	Установите 32-разрядную версию glibc (например, glibc-devel.i686 на Fedora, CentOS,..)
+	Отключить сборку "multilib", предоставив "--disable-multilib" включить команду конфигурации компилятора
+
+Запускаем make:
+
+	sudo make && make install
+
+
