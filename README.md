@@ -187,7 +187,12 @@ ________________
 	
 	yum -y install oracle-softwarecollection-release-el7
 	sudo yum install scl-utils -y
-	sudo yum install devtoolset-8
+	sudo yum install devtoolset-8 -y
 	sudo scl enable devtoolset-8 -- gcc --version
+
+Добавляем в .bashrc:
+
+	source /opt/rh/devtoolset-8/enable
 	
+
 	
