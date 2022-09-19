@@ -1,4 +1,4 @@
-centos7-notes
+Oracle Linux 7 notes
 =============
 
 Заметки по работе с centOS 7.
@@ -146,7 +146,7 @@ Zsh и Oh-my-zsh
 	chsh -s /usr/bin/zsh
 
 
-Обновление GCC:
+Обновление GCC запасной вариант:
 ---------------
 
 Скачиваем исходник:
@@ -182,9 +182,9 @@ error: gnu/stubs-32.h: No such file or directory
 
 	sudo make && make install
 
-GCC
-________________
-	
+Обновление GCC хороший вариант:
+-------------------------------
+
 	yum -y install oracle-softwarecollection-release-el7
 	sudo yum install scl-utils -y
 	sudo yum install devtoolset-8 -y
