@@ -48,6 +48,7 @@ Oracle Linux 7 notes
 	sudo yum -y groupinstall "Development tools"
 	sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel zlib* libffi-devel readline-devel tk-devel
 	sudo yum -y install readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+	sudo yum -y install perl-core pcre-devel
 
 Устанавливаем vim:
 
@@ -194,5 +195,25 @@ error: gnu/stubs-32.h: No such file or directory
 
 	source /opt/rh/devtoolset-8/enable
 	
+Обновление OpenSSL выше 1.0.2:
+-------------------
+
+	wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
+	tar -xvf openssl-*.tar.gz && \rm openssl-*.tar.gz
+	cd openssl-*
+	./config --prefix=/usr/local --openssldir=/usr/local
+	sudo make
+	sudo make install
+	sudo mv /usr/bin/openssl /root/openssl.back
+	ln -s /usr/local/bin/openssl /usr/bin/openssl
+	echo  '/usr/local/lib64' >> /etc/ld.so.conf.d/openssl.conf
+	ldconfig -v
+
+Как я при таком обновлении надо удалить:
+
+	sudo yum remove openssl-devel
+	
+Лучше попробовать при возникновении ошибки
+
 
 	
