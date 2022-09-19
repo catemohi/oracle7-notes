@@ -49,6 +49,7 @@ Oracle Linux 7 notes
 	sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel zlib* libffi-devel readline-devel tk-devel
 	sudo yum -y install readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 	sudo yum -y install perl-core pcre-devel
+	sudo yum install glibc.i686 -y
 
 Устанавливаем vim:
 
@@ -221,5 +222,53 @@ error: gnu/stubs-32.h: No such file or directory
 	
 Лучше попробовать при возникновении ошибки
 
+Обновление SQLite
+------------------
 
+Скачаем и разархивируем:
+
+	wget https://www.sqlite.org/2022/sqlite-tools-linux-x86-3390300.zip
+	unzip sql*
+
+Переименуем и забэкапим встроенныю SQLite:
 	
+	whereis sqlite3
+		sqlite3: /usr/bin/sqlite3 /usr/include/sqlite3.h /usr/share/man/man1/sqlite3.1.gz
+	sqlite3 --version
+		3.7.17 2013-05-20 00:56:22
+	sudo mv /usr/bin/sqlite3 /usr/bin/sqlite3.7.17
+	
+Перенесем новую:
+
+	sudo cp -v sqlite-tools-linux-x86-3390300/sqlite3 /usr/bin
+
+Установка Docker:
+-----------------
+
+Включение репозитория:
+
+	sudo yum-config-manager --enable ol7_addons
+
+Установка из репозитория:
+
+	sudo yum install docker-engine docker-cli
+	
+Включение:
+
+	sudo systemctl enable --now docker
+
+Проверка:
+
+	systemctl status docker
+
+Добавление группы
+	
+	#Что бы избежать Got permission denied while trying to connect to the Docker daemon socket
+	# Создайте группу докеров
+	sudo groupadd docker
+	sudo usermod -aG docker ${USER}
+	# Перезаходим
+	su - ${USER}
+	# Проверяем с помощью тестового контейнера
+	docker run hello-world
+
