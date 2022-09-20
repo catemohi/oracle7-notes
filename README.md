@@ -279,4 +279,16 @@ error: gnu/stubs-32.h: No such file or directory
 	sudo chmod +x /usr/local/bin/docker-compose
 	docker-compose --version
 	
+Ошибки:
+
+* Docker Networking Disabled: WARNING: IPv4 forwarding is disabled. Networking will not work
+
+	- Добавить строчку в /etc/sysctl.conf:
 	
+		net.ipv4.ip_forward=1
+	
+	- Перезапустить сервис:
+		
+		sudo systemctl restart network
+		sudo systemctl restart docker
+
