@@ -292,3 +292,13 @@ error: gnu/stubs-32.h: No such file or directory
 		sudo systemctl restart network
 		sudo systemctl restart docker
 
+Добавление переменных в docker-compose:
+---------------------------------------
+
+Переменные можно передавать напрямую:
+
+	docker compose run -e DEBUG=1 web python console.py
+	
+Или с помощью файлов переменных .env, находящихся в той же директории:
+
+ 	docker compose --env-file ./config/.env.dev up
